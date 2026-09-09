@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happiness Yakubu · Medical Virtual Assistant</title>
+    <meta name="description"
+        content="HIPAA Certified Medical Virtual Assistant specializing in patient scheduling, EHR/EMR management, insurance verification, and healthcare administrative support." />
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+
+    <!-- ===== SOCIAL PREVIEW ===== -->
+    <meta property="og:title" content="Happiness Yakubu · Medical Virtual Assistant" />
+    <meta property="og:description"
+        content="HIPAA Certified Medical Virtual Assistant specializing in patient scheduling, EHR/EMR management, insurance verification, and healthcare administrative support." />
+    <meta property="og:url" content="https://HappinessMVA.github.io/portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://HappinessMVA.github.io/portfolio/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Happiness Yakubu · Medical Virtual Assistant" />
+    <meta name="twitter:description"
+        content="HIPAA Certified Medical Virtual Assistant specializing in patient scheduling, EHR/EMR management, insurance verification, and healthcare administrative support." />
+    <meta name="twitter:image" content="https://HappinessMVA.github.io/portfolio/assets/og-image.png" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Fonts: Inter + Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===== PROGRESS BAR ===== -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- ===== NOISE OVERLAY ===== -->
+    <div class="noise-overlay"></div>
+
+    <!-- ===== GLOW TRAIL ===== -->
+    <div class="glow-trail" id="glowTrail"></div>
+
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- ===== BACKGROUND SHAPES ===== -->
+    <div class="bg-shapes" id="bgShapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <!-- Schedule Button - Bottom Left -->
+    <button class="floating-btn schedule-btn" id="scheduleBtn" aria-label="Schedule a Consultation">
+        <i class="fas fa-calendar-check"></i>
+    </button>
+
+    <!-- Back to Top Button - Bottom Right -->
+    <button class="floating-btn back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#hero" class="logo">Happiness<span>.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#connect">Connect</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <!-- ECG CANVAS -->
+        <canvas id="ecgCanvas"></canvas>
+
+        <!-- Floating Medical Icons (particles) -->
+        <div class="particles-container" id="particlesContainer"></div>
+
+        <div class="hero-glow"></div>
+
+        <div class="container hero-container">
+            <!-- LEFT: Image Frame -->
+            <div class="hero-image-left">
+                <div class="hero-image-frame tilt-card">
+                    <div class="hero-image-inner">
+                        <img src="./assets/happiness.jpg" alt="Happiness Yakubu - Medical Virtual Assistant" />
+                        <div class="hero-image-overlay"></div>
+                    </div>
+                    <div class="hero-image-ring"></div>
+                    <div class="hero-image-badge">✦ HIPAA Certified</div>
+                </div>
+
+                <!-- STATS BAR -->
+                <div class="hero-stats-bar">
+                    <div class="stat-item">
+                        <strong class="counter" data-target="1" data-suffix="+">0</strong>
+                        <span>Years MVA Experience</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <strong class="counter" data-target="4">0</strong>
+                        <span>Certifications</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <strong class="counter" data-target="25" data-suffix="%">0</strong>
+                        <span>Booking Increase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Content -->
+            <div class="hero-content-right">
+                <span class="hero-badge">✦ HIPAA Certified Medical Virtual Assistant</span>
+                <h1 class="hero-title">
+                    <span class="hero-prefix">I Help</span>
+                    <span class="typewriter-wrapper">
+                        <span class="typing-text" id="typingText"></span>
+                    </span>
+                    <span class="hero-suffix">with precision.</span>
+                </h1>
+                <p class="hero-subtitle">I help healthcare providers streamline their daily operations through accurate
+                    scheduling, timely patient communication, and well-managed EHR records, so their teams can stay
+                    focused on delivering quality patient care.</p>
+
+                <div class="hero-trust-badges">
+                    <span><i class="fas fa-calendar-check"></i> Patient Scheduling</span>
+                    <span><i class="fas fa-file-medical"></i> EHR Management</span>
+                    <span><i class="fas fa-shield-alt"></i> HIPAA Compliance</span>
+                    <span><i class="fas fa-phone-medical"></i> Insurance Verification</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="https://calendly.com/yakubuhappiness492" target="_blank"
+                        class="btn btn-primary btn-ripple">
+                        <i class="fas fa-calendar-check"></i> Book a Consultation
+                    </a>
+                    <a href="#services" class="btn btn-outline">View Services</a>
+                </div>
+
+                <!-- TRUST BADGES -->
+                <div class="trust-badges">
+                    <div class="trust-item">
+                        <strong class="trust-number" data-count="100" data-suffix="+">0</strong>
+                        <span>Patients Supported</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong class="trust-number" data-count="25" data-suffix="%">0</strong>
+                        <span>Booking Increase</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong class="trust-number" data-count="30" data-suffix="%">0</strong>
+                        <span>Error Reduction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-text-side">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">Streamlining Healthcare <span>Operations</span></h2>
+                    <p>I'm a HIPAA Certified Medical Virtual Assistant with a background in Administrative Support. I
+                        specialize in patient scheduling, insurance verification, healthcare administrative support,
+                        EHR/EMR management, patient communication, and medical documentation, helping healthcare
+                        practices stay organized, efficient, and compliant.</p>
+                    <p>I believe every healthcare practice deserves reliable administrative support that keeps
+                        operations running smoothly. Whether it's managing patient intake, coordinating appointments, or
+                        handling medical records, I bring precision, professionalism, and a commitment to HIPAA
+                        compliance.</p>
+                    <p>With certifications in HIPAA Compliance, Medical Virtual Assistance, and Virtual Administration,
+                        I'm equipped to support healthcare providers in delivering quality patient care while reducing
+                        administrative burden.</p>
+                    <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px;">
+                        <a href="https://calendly.com/yakubuhappiness492" target="_blank"
+                            class="btn btn-primary btn-ripple">
+                            <i class="fas fa-calendar-check"></i> Book a Consultation
+                        </a>
+                        <a href="./assets/happiness_resume.pdf" download class="btn btn-download btn-ripple">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="about-highlights-cards">
+                    <div class="highlight-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>Patient Scheduling & Coordination</h4>
+                        <p>Efficient appointment scheduling, calendar management, and patient follow-ups to reduce
+                            no-shows and improve practice efficiency.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-file-medical"></i>
+                        <h4>EHR/EMR Management</h4>
+                        <p>Accurate medical records management, patient profile creation, and healthcare documentation
+                            with attention to detail and compliance.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>HIPAA-Compliant Support</h4>
+                        <p>Secure, confidential handling of patient information with full adherence to HIPAA Privacy
+                            Rule, Security Rule, and ePHI protection standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TOOLS (Marquee) ===== -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <span class="section-tag">My Toolbox</span>
+            <h2 class="section-title">Tools I <span>Master</span></h2>
+            <div class="tools-marquee-wrapper">
+                <div class="tools-marquee-track" id="toolsTrack">
+                    <span class="tool-marquee-item"><i class="fas fa-google"></i> Google Workspace</span>
+                    <span class="tool-marquee-item"><i class="fas fa-brain"></i> Notion</span>
+                    <span class="tool-marquee-item"><i class="fab fa-trello"></i> Trello</span>
+                    <span class="tool-marquee-item"><i class="fas fa-file-medical"></i> EHR/EMR Systems</span>
+                    <span class="tool-marquee-item"><i class="fas fa-calendar-check"></i> Scheduling Software</span>
+                    <span class="tool-marquee-item"><i class="fas fa-shield-alt"></i> HIPAA Platforms</span>
+                    <span class="tool-marquee-item"><i class="fas fa-phone-medical"></i> Telehealth Platforms</span>
+                    <span class="tool-marquee-item"><i class="fab fa-slack"></i> Slack</span>
+                    <span class="tool-marquee-item"><i class="fas fa-video"></i> Zoom</span>
+                    <span class="tool-marquee-item"><i class="fas fa-calendar-alt"></i> Calendly</span>
+                    <span class="tool-marquee-item"><i class="fas fa-crm"></i> CRM Systems</span>
+                    <span class="tool-marquee-item"><i class="fas fa-file-alt"></i> Document Management</span>
+                    <span class="tool-marquee-item"><i class="fas fa-database"></i> Data Entry Tools</span>
+                    <span class="tool-marquee-item"><i class="fab fa-microsoft"></i> Microsoft 365</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span class="tool-marquee-item"><i class="fas fa-google"></i> Google Workspace</span>
+                    <span class="tool-marquee-item"><i class="fas fa-brain"></i> Notion</span>
+                    <span class="tool-marquee-item"><i class="fab fa-trello"></i> Trello</span>
+                    <span class="tool-marquee-item"><i class="fas fa-file-medical"></i> EHR/EMR Systems</span>
+                    <span class="tool-marquee-item"><i class="fas fa-calendar-check"></i> Scheduling Software</span>
+                    <span class="tool-marquee-item"><i class="fas fa-shield-alt"></i> HIPAA Platforms</span>
+                    <span class="tool-marquee-item"><i class="fas fa-phone-medical"></i> Telehealth Platforms</span>
+                    <span class="tool-marquee-item"><i class="fab fa-slack"></i> Slack</span>
+                    <span class="tool-marquee-item"><i class="fas fa-video"></i> Zoom</span>
+                    <span class="tool-marquee-item"><i class="fas fa-calendar-alt"></i> Calendly</span>
+                    <span class="tool-marquee-item"><i class="fas fa-crm"></i> CRM Systems</span>
+                    <span class="tool-marquee-item"><i class="fas fa-file-alt"></i> Document Management</span>
+                    <span class="tool-marquee-item"><i class="fas fa-database"></i> Data Entry Tools</span>
+                    <span class="tool-marquee-item"><i class="fab fa-microsoft"></i> Microsoft 365</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-tag">What I Do</span>
+                <h2 class="section-title">Healthcare Administrative <span>Services</span></h2>
+                <p class="section-sub">Comprehensive administrative support for healthcare providers and medical
+                    practices.</p>
+            </div>
+
+            <div class="services-grid-new">
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Patient Scheduling & Coordination</h3>
+                    <p>Efficient appointment scheduling, calendar management, and patient coordination to optimize
+                        practice workflow.</p>
+                    <span class="service-new-number">01</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-file-medical"></i></div>
+                    <h3>EHR/EMR Documentation</h3>
+                    <p>Accurate and timely electronic health record management, patient profile creation, and medical
+                        documentation.</p>
+                    <span class="service-new-number">02</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-check-shield"></i></div>
+                    <h3>Insurance Verification</h3>
+                    <p>Thorough insurance verification, eligibility checks, and benefits confirmation for seamless
+                        patient intake.</p>
+                    <span class="service-new-number">03</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Prior Authorization</h3>
+                    <p>Complete prior authorization processing to ensure timely approval for procedures, medications,
+                        and treatments.</p>
+                    <span class="service-new-number">04</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Patient Intake & Follow-ups</h3>
+                    <p>Streamlined patient intake, onboarding, and follow-up communications to enhance patient
+                        experience.</p>
+                    <span class="service-new-number">05</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>HIPAA-Compliant Communication</h3>
+                    <p>Secure, confidential patient communication ensuring full compliance with HIPAA Privacy and
+                        Security Rules.</p>
+                    <span class="service-new-number">06</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-folder-open"></i></div>
+                    <h3>Medical Records Management</h3>
+                    <p>Organized medical records maintenance, filing, and retrieval with strict attention to accuracy
+                        and confidentiality.</p>
+                    <span class="service-new-number">07</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email & Calendar Management</h3>
+                    <p>Professional email management, calendar coordination, and administrative support for healthcare
+                        providers.</p>
+                    <span class="service-new-number">08</span>
+                </div>
+                <div class="service-new">
+                    <div class="service-new-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Customer Support for Healthcare</h3>
+                    <p>Professional patient communication, inquiry resolution, and support services for healthcare
+                        practices.</p>
+                    <span class="service-new-number">09</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="experience-header">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Where I've <span>Worked</span></h2>
+            </div>
+
+            <div class="experience-grid">
+                <!-- Role 1 - Medical Virtual Assistant -->
+                <div class="exp-item" data-impact="25% booking increase">
+                    <div class="exp-marker"></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>Medical Virtual Assistant</h3>
+                            <span class="exp-company">HopeHill Medical Center</span>
+                            <span class="exp-date">Mar 2026 – Jun 2026</span>
+                        </div>
+                        <p>Scheduled patient appointments and managed calendars, ensuring efficient time management.
+                            Created and maintained detailed patient profiles and organized medical records. Processed
+                            patient intake forms and handled administrative paperwork for new patients. Managed EHR/EMR
+                            information to maintain accurate and up-to-date medical records. Verified insurance,
+                            completed prior authorizations, and communicated with patients to address inquiries.
+                            Onboarded patients and facilitated their initial interactions with the healthcare system.
+                            Sent appointment reminders to patients, enhancing communication and reducing no-shows.</p>
+                        <div class="exp-skills">
+                            <span>Patient Scheduling</span>
+                            <span>EHR Management</span>
+                            <span>Insurance Verification</span>
+                            <span>Prior Authorization</span>
+                            <span>Patient Intake</span>
+                        </div>
+                        <div class="exp-impact"><i class="fas fa-chart-line"></i> <span>Increased appointment bookings
+                                by 25%</span></div>
+                    </div>
+                </div>
+
+                <!-- Role 2 - Virtual Assistant -->
+                <div class="exp-item" data-impact="40% faster response time">
+                    <div class="exp-marker"></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>Virtual Assistant</h3>
+                            <span class="exp-company">Kuava X · Part-time</span>
+                            <span class="exp-date">Feb 2026 – Present</span>
+                        </div>
+                        <p>Provided reliable remote administrative support, managing day-to-day tasks and using online
+                            tools to maintain workflow. Organized documents, managed emails, schedules, and calendars,
+                            ensuring seamless communication and record accuracy. Coordinated meetings and appointments
+                            while responding to client inquiries professionally. Assisted with data entry and
+                            information management to enhance operational efficiency.</p>
+                        <div class="exp-skills">
+                            <span>Email Management</span>
+                            <span>Calendar Management</span>
+                            <span>Data Entry</span>
+                            <span>Travel Coordination</span>
+                            <span>Document Management</span>
+                        </div>
+                        <div class="exp-impact"><i class="fas fa-chart-line"></i> <span>Handled 100+ inquiries weekly
+                                with 40% faster response time</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KEY ACHIEVEMENTS ===== -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <span class="section-tag">Key Achievements</span>
+            <h2 class="section-title">Results I've <span>Delivered</span></h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-calendar-plus"></i></div>
+                    <h3>25% Booking Increase</h3>
+                    <p>Enhanced booking efficiency through optimized scheduling and patient communication strategies.
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-file-medical-alt"></i></div>
+                    <h3>30% Error Reduction</h3>
+                    <p>Reduced administrative errors through meticulous EHR management and attention to detail.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-headset"></i></div>
+                    <h3>40% Faster Response</h3>
+                    <p>Improved customer support response time handling over 100 patient inquiries weekly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WORK CAROUSEL - 12 SAMPLES (Like Aisosa) ===== -->
+    <section class="work-carousel" id="work">
+        <div class="container">
+            <div class="work-header reveal">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Work <span>samples</span></h2>
+                <p class="section-sub">Real projects and systems I've built for healthcare providers and medical
+                    practices.</p>
+            </div>
+
+            <div class="work-carousel-wrapper">
+                <div class="work-carousel-track" id="workTrack">
+                    <!-- Card 1: Patient Calendar Management -->
+                    <div class="work-card">
+                        <img src="./assets/patient_calender_appointment.png" alt="Patient Calendar Management"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Patient Scheduling</span>
+                            <h3>Patient Calendar Management</h3>
+                            <span class="work-result">Streamlined scheduling for healthcare practice</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Appointment Scheduler -->
+                    <div class="work-card">
+                        <img src="./assets/appointment_scheduler.png" alt="Appointment Scheduler"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Scheduling</span>
+                            <h3>Appointment Scheduler</h3>
+                            <span class="work-result">Efficient patient appointment system</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Telehealth Dashboard -->
+                    <div class="work-card">
+                        <img src="./assets/telehealth_dashboard.png" alt="Telehealth Dashboard" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Telehealth</span>
+                            <h3>Telehealth Dashboard</h3>
+                            <span class="work-result">Virtual care management platform</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: EMR Documentation System -->
+                    <div class="work-card">
+                        <img src="./assets/emr_doc_sys.png" alt="EMR Documentation System" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">EHR Management</span>
+                            <h3>EMR Documentation System</h3>
+                            <span class="work-result">Accurate electronic health records</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: SOAP Notes -->
+                    <div class="work-card">
+                        <img src="./assets/SOAP NOTES.png" alt="SOAP Notes" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Documentation</span>
+                            <h3>SOAP Notes</h3>
+                            <span class="work-result">Documentation system</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Appointment Tracker -->
+                    <div class="work-card">
+                        <img src="./assets/appointment_tracker.jpg" alt="Appointment Tracker" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Tracking</span>
+                            <h3>Appointment Tracker</h3>
+                            <span class="work-result">Patient appointment tracking</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Inbox Management -->
+                    <div class="work-card">
+                        <img src="./assets/inbox_management.jpg" alt="Inbox Management" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Communication</span>
+                            <h3>Inbox Management</h3>
+                            <span class="work-result">Professional email management</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Insurance Verification -->
+                    <div class="work-card">
+                        <img src="./assets/insurance_verification.png" alt="Insurance Verification"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Billing</span>
+                            <h3>Insurance Verification</h3>
+                            <span class="work-result">Patient insurance verification</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 9: Medication Tracker -->
+                    <div class="work-card">
+                        <img src="./assets/medication sheet tracker.png" alt="Medication Tracker"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Patient Care</span>
+                            <h3>Medication Tracker</h3>
+                            <span class="work-result">Patient medication management</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 10: Telehealth Patient Guide -->
+                    <div class="work-card">
+                        <img src="./assets/Telehealth patient guide.png" alt="Telehealth Patient Guide"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Patient Education</span>
+                            <h3>Telehealth Patient Guide</h3>
+                            <span class="work-result">Patient education resources</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 11: HIPAA Compliance Checklist -->
+                    <div class="work-card">
+                        <img src="./assets/HIPAA_compliance_checklist.png" alt="HIPAA Compliance Checklist"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Compliance</span>
+                            <h3>HIPAA Compliance Checklist</h3>
+                            <span class="work-result">Healthcare compliance checklist</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 12: EHR Management System -->
+                    <div class="work-card">
+                        <img src="./assets/EHR_mgt_sys.png" alt="EHR Management System" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">EHR Management</span>
+                            <h3>EHR Management System</h3>
+                            <span class="work-result">Electronic health record system</span>
+                        </div>
+                    </div>
+
+                    <!-- DUPLICATES FOR SEAMLESS LOOP -->
+                    <div class="work-card">
+                        <img src="./assets/patient_calender_appointment.png" alt="Patient Calendar Management"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Patient Scheduling</span>
+                            <h3>Patient Calendar Management</h3>
+                            <span class="work-result">Streamlined scheduling for healthcare practice</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/appointment_scheduler.png" alt="Appointment Scheduler"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Scheduling</span>
+                            <h3>Appointment Scheduler</h3>
+                            <span class="work-result">Efficient patient appointment system</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/telehealth_dashboard.png" alt="Telehealth Dashboard" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Telehealth</span>
+                            <h3>Telehealth Dashboard</h3>
+                            <span class="work-result">Virtual care management platform</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/emr_doc_sys.png" alt="EMR Documentation System" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">EHR Management</span>
+                            <h3>EMR Documentation System</h3>
+                            <span class="work-result">Accurate electronic health records</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/SOAP NOTES.png" alt="SOAP Notes" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Documentation</span>
+                            <h3>SOAP Notes</h3>
+                            <span class="work-result"> Documentation system</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/appointment_tracker.jpg" alt="Appointment Tracker" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Tracking</span>
+                            <h3>Appointment Tracker</h3>
+                            <span class="work-result">Patient appointment tracking</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/inbox_management.jpg" alt="Inbox Management" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Communication</span>
+                            <h3>Inbox Management</h3>
+                            <span class="work-result">Professional email management</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/insurance_verification.png" alt="Insurance Verification"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Billing</span>
+                            <h3>Insurance Verification</h3>
+                            <span class="work-result">Patient insurance verification</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/medication sheet tracker.png" alt="Medication Tracker"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Patient Care</span>
+                            <h3>Medication Tracker</h3>
+                            <span class="work-result">Patient medication management</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/Telehealth patient guide.png" alt="Telehealth Patient Guide"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Patient Education</span>
+                            <h3>Telehealth Patient Guide</h3>
+                            <span class="work-result">Patient education resources</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/HIPAA_compliance_checklist.png" alt="HIPAA Compliance Checklist"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Compliance</span>
+                            <h3>HIPAA Compliance Checklist</h3>
+                            <span class="work-result">Healthcare compliance checklist</span>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <img src="./assets/EHR_mgt_sys.png" alt="EHR Management System" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">EHR Management</span>
+                            <h3>EHR Management System</h3>
+                            <span class="work-result">Electronic health record system</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="work-carousel-btn work-prev" id="workPrev"><i class="fas fa-chevron-left"></i></button>
+                <button class="work-carousel-btn work-next" id="workNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <span class="section-tag">Certifications & Education</span>
+            <h2 class="section-title">Professional <span>Credentials</span></h2>
+
+            <div class="certifications-grid">
+                <!-- Credential 1: HIPAA Compliance -->
+                <div class="cert-card">
+                    <div class="cert-image-wrapper">
+                        <img src="./assets/happiness_hippa.jpg" alt="HIPAA Compliance Certificate" class="cert-image" />
+                    </div>
+                    <h3>HIPAA Compliance</h3>
+                    <p>HIPAA TRAINING.US · Issued Jul 2026</p>
+                </div>
+
+                <!-- Credential 2: Virtual Assistant -->
+                <div class="cert-card">
+                    <div class="cert-image-wrapper">
+                        <img src="./assets/happiness_va.jpg" alt="Virtual Assistant Certificate" class="cert-image" />
+                    </div>
+                    <h3>Virtual Assistant</h3>
+                    <p>ALX Africa · Issued May 2026</p>
+                </div>
+
+                <!-- Credential 3: ALX Professional Foundation -->
+                <div class="cert-card">
+                    <div class="cert-image-wrapper">
+                        <img src="./assets/happiness_digital.jpg" alt="ALX Professional Foundation Badge"
+                            class="cert-image" />
+                    </div>
+                    <h3>ALX Professional Foundation</h3>
+                    <p>ALX Africa · Issued Dec 2025</p>
+                </div>
+
+                <!-- Credential 4: Medical Virtual Assistant -->
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Medical Virtual Assistant</h3>
+                    <p>The MedVA Launchpad</p>
+                </div>
+
+                <!-- Credential 5: Education -->
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Nigerian Certificate in Education (NCE)</h3>
+                    <p>College of Education, Akwanga, Nasarawa · 2019 – 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WORKFLOW ===== -->
+    <section class="workflow" id="workflow">
+        <div class="container">
+            <span class="section-tag">My Process</span>
+            <h2 class="section-title">My <span>Workflow</span></h2>
+            <p class="section-sub">Every engagement follows a proven administrative support process designed to deliver
+                consistent, efficient results.</p>
+
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <div class="workflow-number">01</div>
+                    <h3>Discovery & Assessment</h3>
+                    <p>I start by understanding your healthcare practice, clinical workflows, and administrative needs
+                        to ensure seamless integration with your team.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">02</div>
+                    <h3>Administrative Execution</h3>
+                    <p>Tasks are completed with precision — from patient scheduling and EHR management to insurance
+                        verification and prior authorization.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">03</div>
+                    <h3>Documentation & Reporting</h3>
+                    <p>Regular updates and comprehensive documentation keep you informed and ensure continuity of care
+                        using your preferred format.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">04</div>
+                    <h3>Review & Continuous Improvement</h3>
+                    <p>Ongoing feedback and quality review ensure our collaboration becomes more effective over time,
+                        always prioritizing practice efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY WORK WITH ME ===== -->
+    <section class="why-work" id="why-work">
+        <div class="container">
+            <span class="section-tag">Why Work With Me</span>
+            <h2 class="section-title">Why <span>Choose Me</span></h2>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>HIPAA Certified</h3>
+                    <p>Full HIPAA compliance with patient confidentiality and data protection standards.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Efficient Scheduling</h3>
+                    <p>Proven track record of increasing appointment bookings by 25% through optimized scheduling.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-file-medical"></i>
+                    <h3>EHR Expertise</h3>
+                    <p>Accurate EHR/EMR management with a 30% reduction in administrative errors.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Patient-Centered</h3>
+                    <p>Compassionate patient communication with a 40% improvement in response time.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Reliable & Professional</h3>
+                    <p>Consistent, transparent, and professional communication — always delivering on time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS (Flip Card Carousel) ===== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What Clients <span>Say</span></h2>
+
+            <div class="testimonial-flip-container">
+                <div class="testimonial-flip-track" id="testimonialTrack">
+                    <!-- Flip Card 1 - HopeHill Medical Center -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Happiness was an asset to our team at HopeHill. She managed patient scheduling and
+                                    EHR records with exceptional accuracy.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Her attention to detail and ability to handle insurance verifications and prior
+                                    authorizations made our workflow much more efficient.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">H</div>
+                                    <div>
+                                        <div class="t-name-flip">HopeHill Medical Center</div>
+                                        <div class="t-role-flip">Practice Manager</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flip Card 2 - Kuava X -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Happiness provided outstanding virtual support for our team. She managed emails,
+                                    calendars, and travel arrangements seamlessly.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Her proactive communication and reliability made her a pleasure to work with.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">K</div>
+                                    <div>
+                                        <div class="t-name-flip">Kuava X</div>
+                                        <div class="t-role-flip">Operations Lead</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flip Card 3 - Healthcare Practice -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Working with Happiness has been a game-changer for our practice. She streamlined our
+                                    patient intake process.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>She reduced no-shows with timely appointment reminders. Our team can now focus more
+                                    on patient care.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">P</div>
+                                    <div>
+                                        <div class="t-name-flip">Healthcare Practice</div>
+                                        <div class="t-role-flip">Practice Owner</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flip Card 4 - ALX Africa -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Happiness was a standout participant in our Virtual Assistant program. She
+                                    demonstrated strong administrative skills.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>She is a fast learner and a reliable professional. Her commitment to delivering
+                                    quality support was evident throughout.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">A</div>
+                                    <div>
+                                        <div class="t-name-flip">ALX Africa</div>
+                                        <div class="t-role-flip">Program Facilitator</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flip Card 5 - MedVA Launchpad -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>During her Medical Virtual Assistant training, Happiness showed exceptional aptitude
+                                    for healthcare administrative tasks.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Her understanding of EHR systems, insurance verification, and HIPAA compliance was
+                                    impressive.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">M</div>
+                                    <div>
+                                        <div class="t-name-flip">The MedVA Launchpad</div>
+                                        <div class="t-role-flip">Program Instructor</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flip Card 6 - HIPAA Training -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Happiness completed her HIPAA Compliance training with excellence. She has a strong
+                                    grasp of patient confidentiality.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>She is well-prepared to provide secure, compliant administrative support in
+                                    healthcare settings.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">H</div>
+                                    <div>
+                                        <div class="t-name-flip">HIPAA TRAINING.US</div>
+                                        <div class="t-role-flip">Compliance Instructor</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flip Card 7 - Healthcare Client -->
+                    <div class="testimonial-flip-card tilt-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Happiness helped us implement a new patient scheduling system that increased our
+                                    bookings by 25%.</p>
+                                <div class="flip-hint">↻ Click to flip</div>
+                            </div>
+                            <div class="flip-card-back glass-card card-glow shimmer">
+                                <div class="t-quote">"</div>
+                                <p>Her attention to detail and proactive follow-ups have significantly improved our
+                                    practice's efficiency.</p>
+                                <div class="t-author-flip">
+                                    <div class="t-avatar-flip">C</div>
+                                    <div>
+                                        <div class="t-name-flip">Healthcare Client</div>
+                                        <div class="t-role-flip">Practice Administrator</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="flip-carousel-btn flip-prev" id="flipPrev"><i class="fas fa-chevron-left"></i></button>
+                <button class="flip-carousel-btn flip-next" id="flipNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="flip-dots" id="flipDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== CONNECT SECTION ===== -->
+    <section class="connect" id="connect">
+        <div class="container">
+            <div class="connect-content">
+                <span class="section-tag">Connect</span>
+                <h2 class="section-title">Find me <span>online</span></h2>
+                <p class="section-sub">I'm currently open to remote opportunities. Reach out via any platform below.</p>
+            </div>
+            <div class="connect-social-grid">
+                <a href="https://linkedin.com/in/happiness-yakubu-70aaa630a" target="_blank"
+                    class="social-link linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:yakubuhappiness492@gmail.com" class="social-link email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://wa.me/2349137979812" target="_blank" class="social-link whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://calendly.com/yakubuhappiness492" target="_blank" class="social-link calendly">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Calendly</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-left">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">Let's <span>Streamline Your Practice</span></h2>
+                    <p>Ready to bring efficiency into your healthcare practice? I'm here to support your team and your
+                        patients.</p>
+                    <p style="font-weight: 500; color: var(--primary-light);">Whether you need help with patient
+                        scheduling, EHR management, insurance verification, or healthcare administrative support, I'd
+                        love to learn about your needs and explore how we can work together.</p>
+                    <div class="contact-social">
+                        <a href="https://linkedin.com/in/happiness-yakubu-70aaa630a" target="_blank"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:yakubuhappiness492@gmail.com" target="_blank" aria-label="Email"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://calendly.com/yakubuhappiness492" target="_blank" aria-label="Calendly"><i
+                                class="fas fa-calendar-plus"></i></a>
+                        <a href="tel:+2349137979812" target="_blank" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <div style="margin-bottom: 16px; text-align: center;">
+                        <a href="https://calendly.com/yakubuhappiness492" target="_blank"
+                            class="btn btn-primary btn-block"
+                            style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 36px; border-radius: 40px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); background: linear-gradient(135deg, #0BBCB6, #0E9E99); color: #fff; border: none; cursor: pointer; width: 100%; box-shadow: 0 4px 16px rgba(11, 188, 182, 0.3);">
+                            <i class="fas fa-calendar-check"></i> Schedule a Consultation
+                        </a>
+                    </div>
+
+                    <form id="contactForm" action="https://formspree.io/f/xppzyqav" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email address" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message"
+                                placeholder="Tell me about your healthcare practice and what support you need..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+
+                    <div style="margin-top: 16px; text-align: center;">
+                        <a href="./assets/happiness_resume.pdf" download class="btn btn-download btn-block"
+                            style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 36px; border-radius: 40px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1.5px solid var(--primary-light); color: var(--primary-light); background: transparent; width: 100%;">
+                            <i class="fas fa-download"></i> Download Resume / CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Happiness Yakubu · HIPAA Certified Medical Virtual Assistant</p>
+            <p class="footer-tagline">Streamlining Healthcare Operations with Precision.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
